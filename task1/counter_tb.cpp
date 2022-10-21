@@ -2,7 +2,7 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
-int main(int argc, char **argv, char, **env) {
+int main(int argc, char **argv, char **env) {
     int i;
     int clk;
 
@@ -20,12 +20,12 @@ int main(int argc, char **argv, char, **env) {
     top->rst = 1;
     top->en = 0;
 
-    // run simulatiomn for many clock cycles
+    // run simulation for many clock cycles
     for (i=0; i<300; i++) {
 
         // dump variables into VCD file and toggle clock
         for (clk=0; clk<2; clk++) {
-            tfp->dump (2*i*clk); // unit is in ps
+            tfp->dump (2*i+clk); // unit is in ps
             top->clk = !top->clk;
             top->eval ();
         }
