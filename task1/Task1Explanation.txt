@@ -1,0 +1,4 @@
+Clock is the system clock and controls the clock cycles
+
+The time axis in ps doesn't matter, it would be important in reality but we only work in simulation so its unimportant
+
